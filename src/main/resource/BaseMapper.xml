@@ -1,0 +1,30 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.meibanlu.distributor.dao.RetailerDao">
+
+    <sql id="all_columns">
+ALL_COLUMNS
+    </sql>
+
+    <select id="selectOne" resultType="JAVA_CLASS">
+SELECT_ONE
+    </select>
+
+    <select id="selectList" resultType="JAVA_CLASS">
+SELECT_LIST
+    </select>
+
+    <insert id="insert" parameterType="JAVA_CLASS">
+INSERT_ALL
+    </insert>
+
+    <update id="updateNotNull" parameterType="JAVA_CLASS">
+UPDATE_NOT_NULL
+    </update>
+
+    <delete id="delete" parameterType="JAVA_CLASS">
+DELETE_BY_ID
+    </delete>
+
+</mapper>

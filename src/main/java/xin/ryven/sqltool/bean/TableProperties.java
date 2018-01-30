@@ -6,11 +6,23 @@ package xin.ryven.sqltool.bean;
  */
 public class TableProperties {
 
+    private String classFullName;
+
+    private String className;
+
     private String tableName;
 
     private String[] columns;
 
     private String[] fields;
+
+    public String getClassName() {
+        return className;
+    }
+
+    public void setClassName(String className) {
+        this.className = className;
+    }
 
     public String getTableName() {
         return tableName;
@@ -34,5 +46,13 @@ public class TableProperties {
 
     public void setFields(String[] fields) {
         this.fields = fields;
+    }
+
+    public String getClassFullName() {
+        return classFullName;
+    }
+
+    public void setClassFullName(String classFullName) {
+        this.classFullName = classFullName;
     }
 }
