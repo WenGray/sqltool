@@ -1,7 +1,6 @@
 package xin.ryven.sqltool.tool;
 
 import java.io.*;
-import java.net.URL;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 
@@ -11,11 +10,12 @@ import java.nio.channels.FileChannel;
 public class FileUtils {
 
     public static String readResourceFile(String filename) {
-        URL resource = FileUtils.class.getClassLoader().getResource(filename);
-        if (resource == null) {
+        InputStream resourceAsStream = FileUtils.class.getClassLoader().getResourceAsStream(filename);
+        if (resourceAsStream == null) {
             throw new RuntimeException("文件不存在");
         }
-        return readFile(resource.getFile());
+        return readStream(resourceAsStream);
+
     }
 
     public static void writeToFile(String folder, String filename, String msg) {
@@ -49,10 +49,8 @@ public class FileUtils {
         }
     }
 
-    private static String readFile(String filepath) {
-        FileInputStream fis = null;
+    private static String readFile(FileInputStream fis) {
         try {
-            fis = new FileInputStream(new File(filepath));
             FileChannel fc = fis.getChannel();
             ByteBuffer byteBuffer = ByteBuffer.allocate(512);
             int length;
@@ -71,6 +69,37 @@ public class FileUtils {
             if (fis != null) {
                 try {
                     fis.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return null;
+    }
+
+    private static String readStream(InputStream inputStream) {
+        BufferedReader reader = null;
+        try {
+            reader = new BufferedReader(new InputStreamReader(inputStream));
+            StringBuilder b = new StringBuilder();
+            String line;
+            while ((line = reader.readLine()) != null) {
+                b.append(line).append("\n");
+            }
+            return b.toString();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (inputStream != null) {
+                try {
+                    inputStream.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (reader != null) {
+                try {
+                    reader.close();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

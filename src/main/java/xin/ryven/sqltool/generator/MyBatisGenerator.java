@@ -18,8 +18,8 @@ public class MyBatisGenerator {
 
     public static void generate(Class<?> clz) {
         TableProperties properties = tablePropertiesFromClass(clz);
-        String modelXml = FileUtils.readResourceFile("BaseMapper.xml");
-        String allColumns = includeColumns(properties);
+        String modelXml = FileUtils.readResourceFile("g_base_mapper.xml");
+        String allColumns = columnFromArray(properties.getColumns());
         String insertAll = generateInsertWithAll(properties);
         String selectOne = generateSelectOne(properties);
         String selectList = generateSelectList(properties);
@@ -76,12 +76,6 @@ public class MyBatisGenerator {
         properties.setColumns(columns);
         properties.setFields(fields);
         return properties;
-    }
-
-    private static String includeColumns(TableProperties properties) {
-        return String.format("<sql id=\"all_columns\">\n\t%s\n</sql>)",
-                columnFromArray(properties.getColumns()));
-
     }
 
     private static String generateInsertWithAll(TableProperties properties) {
