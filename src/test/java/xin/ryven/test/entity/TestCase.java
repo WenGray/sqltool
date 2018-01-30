@@ -3,7 +3,6 @@ package xin.ryven.test.entity;
 import org.junit.Test;
 import xin.ryven.sqltool.generator.MyBatisGenerator;
 
-import java.util.Enumeration;
 import java.util.Properties;
 import java.util.Set;
 
