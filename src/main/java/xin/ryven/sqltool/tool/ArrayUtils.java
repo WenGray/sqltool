@@ -3,7 +3,7 @@ package xin.ryven.sqltool.tool;
 import java.util.Objects;
 
 /**
- * @author Administrator
+ * @author Gray
  */
 public class ArrayUtils {
 

@@ -2,7 +2,7 @@ package xin.ryven.sqltool.bean;
 
 
 /**
- * @author Administrator
+ * @author Gray
  */
 public class TableProperties {
 

@@ -2,6 +2,9 @@ package xin.ryven.sqltool.tool;
 
 import java.io.IOException;
 
+/**
+ * @author Gray
+ */
 public class WindowsTool {
 
     public static void openDirectory(String dic) throws IOException {

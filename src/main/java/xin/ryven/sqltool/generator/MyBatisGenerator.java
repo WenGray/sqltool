@@ -10,9 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 自动生成Mybatis文件，sql内容
+ * 自动生成Mybatis文件
  *
- * @author Administrator
+ * @author Gray
  */
 public class MyBatisGenerator {
 
