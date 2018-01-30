@@ -7,7 +7,7 @@
 ALL_COLUMNS
     </sql>
 
-    <select id="selectOne" resultType="JAVA_CLASS">
+    <select id="selectOne" resultType="JAVA_CLASS" parameterType="int">
 SELECT_ONE
     </select>
 
